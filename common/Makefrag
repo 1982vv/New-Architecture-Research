@@ -2,6 +2,7 @@
 
 JOBS = 16
 ROCKET_DIR ?= $(base_dir)/rocket-chip
+FESVR_DIR ?= $(base_dir)/riscv-fesvr
 TOP_MODULE_PROJECT ?= zynq
 TOP_MODULE ?= Top
 CFG_PROJECT ?= $(TOP_MODULE_PROJECT)
@@ -220,13 +221,13 @@ CXX_FPGA      = arm-xilinx-linux-gnueabi-g++
 CXXFLAGS_FPGA = -O2 -std=c++11 -Wall -L$(common_build) -lfesvr \
                 -Wl,-rpath,/usr/local/lib \
 		-I $(common)/csrc -I $(testchipip)/csrc \
-		-I $(ROCKET_DIR)/riscv-tools/riscv-fesvr/ \
+		-I $(FESVR_DIR) \
 		-Wl,-rpath,/usr/local/lib \
 
 $(fesvr-lib):
 	mkdir -p $(common_build)
 	cd $(common_build) && \
-	$(ROCKET_DIR)/riscv-tools/riscv-fesvr/configure \
+	$(FESVR_DIR)/configure \
 		--host=arm-xilinx-linux-gnueabi && \
 	make libfesvr.so
 
