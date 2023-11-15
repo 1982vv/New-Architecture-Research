@@ -123,7 +123,7 @@ bitstream: $(bitstream)
 # Platform software generation
 # ------------------------------------------------------------------------------
 arm_linux_dir = $(base_dir)/common/linux-xlnx
-uboot_dir = $(base_dir)/common/u-boot-xlnx
+uboot_dir = $(base_dir)/common/u-boot
 soft_build_dir = soft_build
 
 arm-linux: arm-uboot # must first build uboot because we need tools
@@ -139,7 +139,6 @@ arm-linux: arm-uboot # must first build uboot because we need tools
 
 arm-uboot:
 	# compile board-compatible u-boot
-	git submodule update --init $(uboot_dir)
 	# copy relevant configuration files
 	if [ -a soft_config/boards.cfg ] ; \
 	then \
