@@ -1,0 +1,5 @@
+NAME=Buildroot
+VERSION=2023.11-rc1-4-gde3c1390b3
+ID=buildroot
+VERSION_ID=2023.11-rc1
+PRETTY_NAME="Buildroot 2023.11-rc1"

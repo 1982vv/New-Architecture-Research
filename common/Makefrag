@@ -128,7 +128,6 @@ soft_build_dir = soft_build
 
 arm-linux: arm-uboot # must first build uboot because we need tools
 	# compile kernel
-	git submodule update --init $(arm_linux_dir)
 	# no make clean included here since one copy of linux should work on all boards
 	cd $(arm_linux_dir) && make ARCH=arm CROSS_COMPILE=arm-xilinx-linux-gnueabi- xilinx_zynq_defconfig 
 	cd $(arm_linux_dir) && make ARCH=arm CROSS_COMPILE=arm-xilinx-linux-gnueabi- -j$(JOBS)
